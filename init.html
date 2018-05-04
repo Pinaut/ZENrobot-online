@@ -1,0 +1,54 @@
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+<meta name="description" content="A description of the page">
+<!-- Control the behavior of search engine crawling and indexing -->
+<meta name="robots" content="index,follow"><!-- All Search Engines -->
+<meta name="googlebot" content="index,follow"><!-- Google Specific -->
+<meta name="google" content="nositelinkssearchbox">
+<meta http-equiv="refresh" content="10; URL=http://keinkunst.ch/zen/run.php">
+<title>ZENrobot</title>
+<style type="text/css">
+body,td,th {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 14px;
+	background-image: url(http://keinkunst.ch/img/pattern-8.png);
+	color: #000;
+	font-weight: normal;
+}
+</style>
+</head>
+
+<script>
+var cnt = 9;
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        //minutes = minutes < 10 ? "0" + minutes : minutes;
+        //seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = seconds;
+		
+       if (--timer < 0) {
+		   clearInterval(timer);// fake. auto refresh does the job   	
+        }
+    }, 1000);
+}
+
+
+window.onload = function () {	 
+    var counter = cnt,
+        display = document.querySelector('#time');
+		//display.textContent = "Q0:00";
+    startTimer(counter, display);
+};
+</script>
+
+<body>
+please wait... <span id="time">10</span>
+</body>
+</html>
